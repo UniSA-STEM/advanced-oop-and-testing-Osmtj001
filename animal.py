@@ -14,11 +14,24 @@ This is my own work as defined by the University's Academic Integrity Policy.
 # making sounds, ea�ng, and sleeping.
 
 class Animal:
-    def __init__(self, name, species, age, diet, category):
+    def __init__(self, name, species, age, diet, category, sound):
         self.name = name
         self.species = species
         self.age = age
         self.diet = diet
         self.category = category
+        self.sound = sound
 
-    def
+    def make_sound(self):
+        print(self.sound)
+
+    def eat_food(self):
+        print(self.diet)
+
+    def sleep(self):
+        print(f"{self.name} is now sleeping. ZZZzzz.")
+
+Parrot = Animal("Parrot", "bird", 12, "worms", "bird", "Cacaw")
+Parrot.make_sound()
+Parrot.sleep()
+Parrot.eat_food()
