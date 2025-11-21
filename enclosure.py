@@ -54,7 +54,7 @@ class Enclosure:
             print(f"Enclosure cleanliness: {self.__clean}")
         else:
             self.__clean = 0
-            print(f"Enclosure ..... *COME BACK TO ME LATER")
+            print(f"Enclosure was not cleaned")
 
     def __get_animals(self):
         return list(self.__animal)
@@ -84,7 +84,8 @@ class Enclosure:
 
 
     def __str__(self):
-        return(f"\nEnclosure: {self.__name}\n Size:{self.__size}\n Environment: {self.__environment}\n Animal Type: {self.__animal_type}\n Cleanliness{self.__clean}\n Current Residents: {len(self.__animal)}")
+        resident_names = ", ".join([a.name for a in self.__animal]) if self.__animal else "None"
+        return(f"\nEnclosure: {self.__name}\n Size:{self.__size}\n Environment: {self.__environment}\n Animal Type: {self.__animal_type}\n Cleanliness{self.__clean}\n Current Residents: {len(self.__animal)}\n Resident Name: {resident_names}")
 
     name = property(__get_name, __set_name)
     size = property(__get_size, __set_size)
@@ -93,9 +94,12 @@ class Enclosure:
     cleanliness = property(__get_cleanliness, __set_cleanliness)
     animals = property(__get_animals)
 
+penguin = Animal("Pingu","Swan", 10, "Worms", "E", "Meow")
+p1 = Animal("Swanny","Swan", 10, "Worms", "E", "Meow")
 E1=Enclosure("E1", 10, "E", "E")
 print("\n")
-E1.add_animal("Giraffe")
+E1.add_animal(penguin)
+E1.add_animal(p1)
 print(E1)
 
 # Enclosures are used to house animals and must include proper�es such as size,
