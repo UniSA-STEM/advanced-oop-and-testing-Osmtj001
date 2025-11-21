@@ -6,7 +6,7 @@ ID: 110316757
 Username: Osmtj001
 This is my own work as defined by the University's Academic Integrity Policy.
 '''
-
+from animal import Animal
 class Enclosure:
     def __init__(self, name, size, environment, animal_type):
         self.name = name
@@ -59,6 +59,30 @@ class Enclosure:
     def __get_animals(self):
         return list(self.__animal)
 
+    def add_animal(self, animal):
+        if not isinstance(animal, str) and animal.category == self.__animal_type:
+            self.__animal.append(animal)
+            print(f"Added animal: {animal.name} to enclosure {self.name}")
+        else:
+            print(f"This enclosure is for {self.__animal_type} animals only.")
+
+    def remove_animal(self, animal):
+        if not isinstance(animal, str) and animal in self.__animal:
+            self.__animal.remove(animal)
+            print(f"Removed animal: {animal} from Enclosure {self.name}")
+
+    def list_animals(self):
+        if len(self.__animal) > 0:
+            for a in self.__animal:
+                print(f"{a.name}: {a.species}: {a.category}")
+
+            else:
+                 print("No animals were found in this enclosure.")
+
+
+
+
+
     def __str__(self):
         return(f"\nEnclosure: {self.__name}\n Size:{self.__size}\n Environment: {self.__environment}\n Animal Type: {self.__animal_type}\n Cleanliness{self.__clean}\n Current Residents: {len(self.__animal)}")
 
@@ -71,9 +95,8 @@ class Enclosure:
 
 E1=Enclosure("E1", 10, "E", "E")
 print("\n")
-
+E1.add_animal("Giraffe")
 print(E1)
-
 
 # Enclosures are used to house animals and must include proper�es such as size,
 # environmental type (e.g., aqua�c, savannah), and cleanliness level. Each enclosure is
