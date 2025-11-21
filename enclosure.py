@@ -9,11 +9,11 @@ This is my own work as defined by the University's Academic Integrity Policy.
 
 class Enclosure:
     def __init__(self, name, size, environment, animal_type):
-        self.__name = name
-        self.__size = size
+        self.name = name
+        self.size = size
         self.__environment = environment
         self.__animal_type = animal_type
-        self.__clean = 100
+        self.clean = 100
         self.__animal = []
 
     def __get_name(self):
@@ -32,37 +32,45 @@ class Enclosure:
         return self.__size
 
     def __set_size(self, size):
-        if isinstance(size, int) and size is not None:
+        if isinstance(size, int) and size is not None and size > 0:
             self.__size = size
             print(f"Enclosure size: {size}")
         else:
-            self.__size = "0"
+            self.__size = 0
             print(f"Enclosure size did not meet requirements. Size has been defaulted to {self.__size}")
 
-    def environment(self):
+    def __get_environment(self):
         return self.__environment
 
-    def animal_type(self):
+    def __get_animal_type(self):
         return self.__animal_type
 
     def __get_cleanliness(self):
         return self.__clean
 
     def __set_cleanliness(self, clean):
-        if isinstance(clean, int) and clean is not None and  0 < clean <=100:
+        if isinstance(clean, int) and  0 <= clean <=100:
             self.__clean = clean
             print(f"Enclosure cleanliness: {self.__clean}")
         else:
-            self.__clean = "0"
+            self.__clean = 0
             print(f"Enclosure ..... *COME BACK TO ME LATER")
 
-    def animals(self):
+    def __get_animals(self):
         return list(self.__animal)
+
+    def __str__(self):
+        return(f"Enclosure: {self.__name}/n Size:{self.__size}/n Environment: {self.__environment} {self.__animal_type}")
 
     name = property(__get_name, __set_name)
     size = property(__get_size, __set_size)
+    environment = property (__get_environment)
+    animal_type = property(__get_animal_type)
     cleanliness = property(__get_cleanliness, __set_cleanliness)
+    animals = property(__get_animals)
 
+E1=Enclosure("E1", 10, "E", "E")
+print(E1)
 
 
 # Enclosures are used to house animals and must include proper�es such as size,
