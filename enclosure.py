@@ -7,6 +7,17 @@ Username: Osmtj001
 This is my own work as defined by the University's Academic Integrity Policy.
 '''
 
+class Emclosure:
+    def __init__(self, name, size, environment, animal_type):
+        self.name = name
+        self.size = size
+        self.environment = environment
+        self.animal_type = animal_type
+
+
+
+
+
 # Enclosures are used to house animals and must include proper�es such as size,
 # environmental type (e.g., aqua�c, savannah), and cleanliness level. Each enclosure is
 # restricted to a single type of animal, meaning incompa�ble species should not be housed
