@@ -13,7 +13,7 @@ class Enclosure:
         self.size = size
         self.__environment = environment
         self.__animal_type = animal_type
-        self.clean = 100
+        self.cleanliness = 100
         self.__animal = []
 
     def __get_name(self):
@@ -60,7 +60,7 @@ class Enclosure:
         return list(self.__animal)
 
     def __str__(self):
-        return(f"Enclosure: {self.__name}/n Size:{self.__size}/n Environment: {self.__environment} {self.__animal_type}")
+        return(f"\nEnclosure: {self.__name}\n Size:{self.__size}\n Environment: {self.__environment}\n Animal Type: {self.__animal_type}\n Cleanliness{self.__clean}\n Current Residents: {len(self.__animal)}")
 
     name = property(__get_name, __set_name)
     size = property(__get_size, __set_size)
@@ -70,6 +70,8 @@ class Enclosure:
     animals = property(__get_animals)
 
 E1=Enclosure("E1", 10, "E", "E")
+print("\n")
+
 print(E1)
 
 
