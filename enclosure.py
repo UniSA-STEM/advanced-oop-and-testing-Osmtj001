@@ -16,22 +16,22 @@ class Enclosure:
         self.__clean = 100
         self.__animal = []
 
-    def get_name(self):
+    def __get_name(self):
         return self.__name
 
-    def set_name(self, name):
+    def __set_name(self, name):
         if isinstance(name, str) and name is not None:
             self.__name = name
             print(f"Enclosure name: {name}")
         else:
             self.__name = "Default Enclosure"
             print(f"Enclosure name did not meet requirements: {self.__name} has been assigned")
-    name = property(get_name, set_name)
 
-    def get_size(self):
+
+    def __get_size(self):
         return self.__size
 
-    def set_size(self, size):
+    def __set_size(self, size):
         if isinstance(size, int) and size is not None:
             self.__size = size
             print(f"Enclosure size: {size}")
@@ -39,7 +39,31 @@ class Enclosure:
             self.__size = "0"
             print(f"Enclosure size did not meet requirements. Size has been defaulted to {self.__size}")
 
-    size = property(get_size, set_size)
+    def environment(self):
+        return self.__environment
+
+    def animal_type(self):
+        return self.__animal_type
+
+    def __get_cleanliness(self):
+        return self.__clean
+
+    def __set_cleanliness(self, clean):
+        if isinstance(clean, int) and clean is not None:
+            self.__clean = clean
+            print(f"Enclosure cleanliness: {self.__clean}")
+        else:
+            self.__clean = "0"
+            print(f"Enclosure ..... *COME BACK TO ME LATER")
+
+    def animals(self):
+        return list(self.__animal)
+
+    name = property(__get_name, __set_name)
+    size = property(__get_size, __set_size)
+    cleanliness = property(__get_cleanliness, __set_cleanliness)
+
+
 
 # Enclosures are used to house animals and must include proper�es such as size,
 # environmental type (e.g., aqua�c, savannah), and cleanliness level. Each enclosure is
