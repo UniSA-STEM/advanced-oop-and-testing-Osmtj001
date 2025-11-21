@@ -49,7 +49,7 @@ class Enclosure:
         return self.__clean
 
     def __set_cleanliness(self, clean):
-        if isinstance(clean, int) and clean is not None:
+        if isinstance(clean, int) and clean is not None and  0 < clean <=100:
             self.__clean = clean
             print(f"Enclosure cleanliness: {self.__clean}")
         else:
