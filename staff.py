@@ -82,6 +82,27 @@ class Zookeeper(Staff):
             enclosure.cleanliness = 100
             print(f"{enclosure} is now cleaned and is {enclosure.cleanliness}/100")
 
+class Vet(Staff):
+    def __init__(self, name):
+        Staff.__init__(self, name, "Vet")
+
+    def health_check(self, animal, health_issue):
+        if animal not in self.assigned_animal:
+            print(f"Error, Animal: {animal} is not assigned to {self.name}")
+        else:
+            print(f"{self.name} is conducting a health check for {animal.name} due to {health_issue}")
+
+    def treat_animal(self, animal, treatment_plan):
+        if animal not in self.assigned_animal:
+            print(f"Error, Animal: {animal} is not assigned to {self.name}")
+        else:
+            print(f"{self.name} is treating {animal}")
+            print(f"Treatment Plan: {treatment_plan}")
+
+
+
+
+
 
 # Staff members play a key role in zoo opera�ons and should be modeled with roles such as
 # zookeeper or veterinarian, each with specific responsibili�es. Staff should be able to perform
