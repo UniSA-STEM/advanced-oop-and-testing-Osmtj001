@@ -94,7 +94,7 @@ class Enclosure:
     cleanliness = property(__get_cleanliness, __set_cleanliness)
     animals = property(__get_animals)
 
-penguin = Animal("Pingu","Swan", 10, "Worms", "E", "Meow")
+penguin = Animal("Pingu","Swan", 10, "Worms", "E", "Pizaaaa")
 p1 = Animal("Swanny","Swan", 10, "Worms", "E", "Meow")
 E1=Enclosure("E1", 10, "E", "E")
 print("\n")
