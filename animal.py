@@ -37,11 +37,11 @@ class Animal:
 
     def add_health_issue(self, health_issue):
         self.__health_issues.append(health_issue)
-        print(f"{self.name}: Heaht Issue: {health_issue}")
+        print(f"{self.name}: Health Issue: {health_issue}")
 
     def resolve_health_issues(self, health_issues):
         if health_issues in self.__health_issues:
-            Health.close_issue()
+            health_issues.close_issue()
             print(f"{self.name}: Health Issue: {health_issues} has now been resolved")
         else:
             print(f"Error ~~ Health Issue: {health_issues} not found for {self.name}")
@@ -50,6 +50,9 @@ class Animal:
         return [issue for issue in self.__health_issues if issue.active]
 
     def get_all_issues(self):
+        return list(self.__health_issues)
+
+    def has_active_issues(self):
         return any(issue.active for issue in self.__health_issues)
 
     def print_report(self):
@@ -84,8 +87,8 @@ class Health:
         if isinstance(date_reported, str):
             self.__date_reported = date_reported
         else:
-            self.__date_report = "Unknown"
-            print(f"Invalid Date Provided: {self.__date_report} has been set")
+            self.__date_reported = "Unknown"
+            print(f"Invalid Date Provided: {self.__date_reported} has been set")
 
     def __get_level(self):
         return self.__level
@@ -107,7 +110,7 @@ class Health:
             print(f"Invalid Treatment Plan: {self.__treatment_plan} has been set")
 
     def __get_active(self):
-        return self.__get_active()
+        return self.__active
     def __set_active(self, active):
         if isinstance(active, bool):
             self.__active = active
@@ -121,9 +124,9 @@ class Health:
     def __str__(self):
         active_status = "Active" if self.active else "Resolved"
         return(f"Health Issue: {self.description},"
-               f"Date Reported: {self.__date_report},"
-               f"Level of Severity: {self.__level},"
-               f"Treatment Plan: {self.__treatment_plan},"
+               f"Date Reported: {self.date_reported},"
+               f"Level of Severity: {self.level},"
+               f"Treatment Plan: {self.treatment_plan},"
                f"Active Status: {active_status}")
 
     description = property(__get_description, __set_description)
