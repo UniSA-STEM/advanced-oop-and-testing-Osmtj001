@@ -6,7 +6,8 @@ ID: 110316757
 Username: Osmtj001
 This is my own work as defined by the University's Academic Integrity Policy.
 '''''
-
+from enclosure import Enclosure
+from animal import Animal
 class Staff:
     def __init__(self, name, role):
         self.name = name
@@ -15,25 +16,25 @@ class Staff:
         self.__animals = []
 
     def __get_name(self):
-        return self.name
+        return self.__name
 
     def __set_name(self, name):
         if isinstance(name, str):
-            self.name = name
+            self.__name = name
         else:
-            self.name = "Unknown Staff Member"
+            self.__name = "Unknown Staff Member"
             print(f"Invalid Name provided. Default Name Set: {self.name}")
 
 
 
     def __get_role(self):
-        return self.role
+        return self.__role
 
     def __set_role(self, role):
         if isinstance(role, str):
-            self.role = role
+            self.__role = role
         else:
-            self.role = "Unassigned"
+            self.__role = "Unassigned"
             print(f"Invalid Role provided. Default Role Set: {self.role}")
 
 
@@ -60,6 +61,27 @@ class Staff:
     role = property(__get_role, __set_role)
     assigned_enclosure = property(__get_enclosures)
     assigned_animal = property(__get_animals)
+
+
+class Zookeeper(Staff):
+    def __init__(self, name):
+        Staff.__init__(self, name, "Zookeeper")
+
+    def feed_animal(self, animal):
+        if animal not in self.assigned_animal:
+            print(f"Error, Animal: {animal} is not assigned to {self.name}")
+        else:
+            print(f"{self.name} is feeding {animal}")
+            animal.eat_food()
+
+    def clean_enclosure(self, enclosure):
+        if enclosure not in self.assigned_enclosure:
+            print(f"Error, Enclosure: {enclosure} is not assigned to {self.name}")
+        else:
+            print(f"{self.name} is cleaning {enclosure}")
+            enclosure.cleanliness = 100
+            print(f"{enclosure} is now cleaned and is {enclosure.cleanliness}/100")
+
 
 # Staff members play a key role in zoo opera�ons and should be modeled with roles such as
 # zookeeper or veterinarian, each with specific responsibili�es. Staff should be able to perform
