@@ -25,17 +25,6 @@ class Animal:
         self.sound = sound
         self.__health_issues = []
 
-    # def add_animal(self):
-    #     A_name = input("Please enter animal Name")
-    #     A_Species = input("Please enter animal Species")
-    #     A_Age = input("Please enter animal Age")
-    #     A_Diet = input("Please enter animal Diet")
-    #     A_Category = ""
-    #     while A_Category not in Animal.Categories:
-    #         A_Category = input(f"Please enter animal Category from {Animal.Categories}")
-    #     A_Sound = input("Please enter animal Sound")
-    #
-    #     return Animal(A_name, A_Species, A_Age, A_Diet, A_Category, A_Sound)
 
     def make_sound(self):
         print(f"{self.name} sounding: {self.sound}")
@@ -70,16 +59,6 @@ class Animal:
         else:
             for issue in self.__health_issues:
                 print(f"Health Issue: {issue}")
-
-# dummy = Animal("", "", 0, "", "", "")
-# new_animal = dummy.add_animal()
-#
-# print(new_animal.name)
-# new_animal.make_sound()
-# # Parrot = Animal("Parrot", "bird", 12, "worms", "bird", "Cacaw")
-# # Parrot.make_sound()
-# # Parrot.sleep()
-# # Parrot.eat_food()
 
 class Health:
     def __init__(self, description, date_reported, level, treatment_plan):
