@@ -46,6 +46,31 @@ class Animal:
     def sleep(self):
         print(f"{self.name} is now sleeping. ZZZzzz.")
 
+    def add_health_issue(self, health_issue):
+        self.__health_issues.append(health_issue)
+        print(f"{self.name}: Heaht Issue: {health_issue}")
+
+    def resolve_health_issues(self, health_issues):
+        if health_issues in self.__health_issues:
+            Health.close_issue()
+            print(f"{self.name}: Health Issue: {health_issues} has now been resolved")
+        else:
+            print(f"Error ~~ Health Issue: {health_issues} not found for {self.name}")
+
+    def get_active_issues(self):
+        return [issue for issue in self.__health_issues if issue.active]
+
+    def get_all_issues(self):
+        return any(issue.active for issue in self.__health_issues)
+
+    def print_report(self):
+        print(f"Health Report for {self.name}:")
+        if not self.__health_issues:
+            print(f"No health issues found for {self.name}")
+        else:
+            for issue in self.__health_issues:
+                print(f"Health Issue: {issue}")
+
 # dummy = Animal("", "", 0, "", "", "")
 # new_animal = dummy.add_animal()
 #
