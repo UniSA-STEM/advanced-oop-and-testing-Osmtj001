@@ -47,12 +47,12 @@ class Staff:
     def assign_enclosure(self, enclosure):
         if enclosure not in self.__enclosures:
             self.__enclosures.append(enclosure)
-            print(f"Enclosure: {enclosure} is assigned to {self.name}")
+            print(f"Enclosure: {enclosure.name} is assigned to {self.name}")
 
     def assign_animal(self, animal):
         if animal not in self.__animals:
             self.__animals.append(animal)
-            print(f"Animal: {animal} is assigned to {self.name}")
+            print(f"Animal: {animal.name} is assigned to {self.name}")
 
     def __str__(self):
         return f"Staff: {self.name}, Role: {self.role}, Enclosures: {self.__enclosures}, Animals: {self.__animals}"
@@ -88,18 +88,27 @@ class Vet(Staff):
 
     def health_check(self, animal, health_issue):
         if animal not in self.assigned_animal:
-            print(f"Error, Animal: {animal} is not assigned to {self.name}")
+            print(f"Error, Animal: {animal.name} is not assigned to {self.name}")
         else:
             print(f"{self.name} is conducting a health check for {animal.name} due to {health_issue}")
 
+
     def treat_animal(self, animal, treatment_plan):
         if animal not in self.assigned_animal:
-            print(f"Error, Animal: {animal} is not assigned to {self.name}")
+            print(f"Error, Animal: {animal.name} is not assigned to {self.name}")
         else:
-            print(f"{self.name} is treating {animal}")
+            print(f"{self.name} is treating {animal.name}")
             print(f"Treatment Plan: {treatment_plan}")
 
+vet = Vet("Dr. Claire")
+lion = Animal("Simba", "Lion", 5, "Meat", "Mammal", "Roar")
 
+
+vet.assign_animal(lion)
+
+vet.health_check(lion, "Limping on left hind leg")
+
+vet.treat_animal(lion, "Rest for 3 days and apply ice")
 
 
 
