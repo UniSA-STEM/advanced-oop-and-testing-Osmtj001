@@ -60,11 +60,19 @@ class Enclosure:
         return list(self.__animal)
 
     def add_animal(self, animal):
-        if not isinstance(animal, str) and animal.category == self.__animal_type:
-            self.__animal.append(animal)
-            print(f"Added animal: {animal.name} to enclosure {self.name}")
+        if not isinstance(animal, str):
+            if animal.has_active_issues():
+                print(f"{animal.name} has an active health issues & cannot be added to an enclosure")
+
+            if animal.category == self.__animal_type:
+                self.__animal.append(animal)
+                print(f"Added animal: {animal.name} to enclosure {self.name}")
+
+            else:
+                print(f"This enclosure is for {self.__animal_type} animals only.")
+
         else:
-            print(f"This enclosure is for {self.__animal_type} animals only.")
+            print(f"Invalid animal object given. Please enter a string representing an animal")
 
     def remove_animal(self, animal):
         if not isinstance(animal, str) and animal in self.__animal:
