@@ -94,13 +94,13 @@ class Enclosure:
     cleanliness = property(__get_cleanliness, __set_cleanliness)
     animals = property(__get_animals)
 
-penguin = Animal("Pingu","Swan", 10, "Worms", "E", "Pizaaaa")
-p1 = Animal("Swanny","Swan", 10, "Worms", "E", "Meow")
-E1=Enclosure("E1", 10, "E", "E")
-print("\n")
-E1.add_animal(penguin)
-E1.add_animal(p1)
-print(E1)
+# penguin = Animal("Pingu","Swan", 10, "Worms", "E", "Pizaaaa")
+# p1 = Animal("Swanny","Swan", 10, "Worms", "E", "Meow")
+# E1=Enclosure("E1", 10, "E", "E")
+# print("\n")
+# E1.add_animal(penguin)
+# E1.add_animal(p1)
+# print(E1)
 
 # Enclosures are used to house animals and must include proper�es such as size,
 # environmental type (e.g., aqua�c, savannah), and cleanliness level. Each enclosure is
