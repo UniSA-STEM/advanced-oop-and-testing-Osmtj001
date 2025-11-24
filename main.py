@@ -30,7 +30,7 @@ def normalizerformat(function, label):
 # prin�ng results. Think of it as a walkthrough of your zoo in ac�on.
 
 def print_single_animal():
-    zoo = Zoo("Trent's Sancutary")
+    zoo = Zoo("Michael's Sancutary")
     lion = Animal("Simba", "Lion", 5, "Meat", "Mammal", "Roar")
     print(lion)
 #Attempting to add a Mammal to a Bird enclosure
@@ -67,7 +67,7 @@ def test_health_deny():
 
 #Testing for Zookeeper not assigned to animal attempting to feed
 def test_zookeeper_unassigned_animal():
-    zoo = Zoo("Trent's Sanctuary")
+    zoo = Zoo("Ryan's Sanctuary")
 
     a1 = Animal("Gloria", "Hippo", 7, "Hay", "Mammal", "Grunt")
     e1 = Enclosure("Hippo Pond", 120, "Aquatic", "Mammal")
@@ -90,7 +90,7 @@ def test_zookeeper_unassigned_animal():
     keeper2.feed_animal(a1)
 
 def test_invalid_animal_input():
-    zoo = Zoo("Simone's Sanctuary")
+    zoo = Zoo("Davids's Sanctuary")
     e1 = Enclosure("Test Enclosure", 30, "Grassland", "Mammal")
     zoo.add_enclosure(e1)
 
@@ -100,7 +100,7 @@ def test_invalid_animal_input():
 
 #Full test of Zoo conditions, without planned errors
 def test_zoo():
-    zoo = Zoo("Trents's Sanctuary")
+    zoo = Zoo("Bruce's Sanctuary")
 #Creating Animal, Enclosure & Zookeeper
     a1 = Animal("Brax", "Penguin", 4, "Fish", "Bird", "Honk")
     e1 = Enclosure("Penguin Pool", 50, "Aquatic", "Bird")
