@@ -6,8 +6,10 @@ ID: 110316757
 Username: Osmtj001
 This is my own work as defined by the University's Academic Integrity Policy.
 '''
-from animal import Animal
+
+#Enclosure Class represents a habitat for animals within the zoo. It holds values such as name, size, environment type, animal type, cleanliness, and animals housed within.
 class Enclosure:
+#Required Properties for this class. These properties are validated through a setter to ensure that the correct value type is inputted before running
     def __init__(self, name, size, environment, animal_type):
         self.name = name
         self.size = size
@@ -16,6 +18,7 @@ class Enclosure:
         self.cleanliness = 100
         self.__animal = []
 
+#Getters & Setters for various variables. These functions perform the same, if not very similar task of ensuring the data is validated before being entered into the class. If the incorrect data is entered, an error will print and a default value is assigned.
     def __get_name(self):
         return self.__name
 
@@ -55,10 +58,15 @@ class Enclosure:
         else:
             self.__clean = 0
             print(f"Enclosure was not cleaned")
-
+#Returns a copy of the animal list
     def __get_animals(self):
         return list(self.__animal)
 
+#Adds an animal to this enclosure if conditions are met
+#Animal must not have active health issue
+#Animal category must match enclosure animal type
+#Must pass data validation
+#If not, an error is returned
     def add_animal(self, animal):
         if not isinstance(animal, str):
             if animal.has_active_issues():
@@ -74,12 +82,13 @@ class Enclosure:
 
         else:
             print(f"Invalid animal object given. Please enter a string representing an animal")
-
+#Checks to see if the animal exists within the enclosure. If so, it is removed
     def remove_animal(self, animal):
         if not isinstance(animal, str) and animal in self.__animal:
             self.__animal.remove(animal)
             print(f"Removed animal: {animal} from Enclosure {self.name}")
 
+#Lists all current animals within this enclosure
     def list_animals(self):
         if len(self.__animal) > 0:
             for a in self.__animal:
@@ -91,30 +100,14 @@ class Enclosure:
 
 
 
-
+#Returns an easy to read summary of the enclosure
     def __str__(self):
         resident_names = ", ".join([a.name for a in self.__animal]) if self.__animal else "None"
         return(f"\nEnclosure: {self.__name}\n Size:{self.__size}\n Environment: {self.__environment}\n Animal Type: {self.__animal_type}\n Cleanliness{self.__clean}\n Current Residents: {len(self.__animal)}\n Resident Name: {resident_names}")
-
+# Properties for encapsulated access to enclosure name, size, environment, animal type, cleanliness, and animals
     name = property(__get_name, __set_name)
     size = property(__get_size, __set_size)
     environment = property (__get_environment)
     animal_type = property(__get_animal_type)
     cleanliness = property(__get_cleanliness, __set_cleanliness)
     animals = property(__get_animals)
-
-# penguin = Animal("Pingu","Swan", 10, "Worms", "E", "Pizaaaa")
-# p1 = Animal("Swanny","Swan", 10, "Worms", "E", "Meow")
-# E1=Enclosure("E1", 10, "E", "E")
-# print("\n")
-# E1.add_animal(penguin)
-# E1.add_animal(p1)
-# print(E1)
-
-# Enclosures are used to house animals and must include proper�es such as size,
-# environmental type (e.g., aqua�c, savannah), and cleanliness level. Each enclosure is
-# restricted to a single type of animal, meaning incompa�ble species should not be housed
-# together (e.g., koalas should not be placed in a penguin enclosure). Enclosures should be
-# able to report their current status and list the animals they contain. Your system should
-# ensure that animals are only placed in enclosures that are appropriate for their species and
-# environmental needs.
