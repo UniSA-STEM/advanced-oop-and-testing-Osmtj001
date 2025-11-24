@@ -12,6 +12,7 @@ from staff import *
 from enclosure import Enclosure
 from Zoo import Zoo
 from animal import *
+from Health import *
 
 
 #Normalizer to easily format functions upon output at a later stage
