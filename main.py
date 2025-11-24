@@ -29,6 +29,10 @@ def normalizerformat(function, label):
 # it should clearly show how your system works by crea�ng objects, invoking methods, and
 # prin�ng results. Think of it as a walkthrough of your zoo in ac�on.
 
+def print_single_animal():
+    zoo = Zoo("Trent's Sancutary")
+    lion = Animal("Simba", "Lion", 5, "Meat", "Mammal", "Roar")
+    print(lion)
 #Attempting to add a Mammal to a Bird enclosure
 def test_wrong_category():
     zoo = Zoo("Trent's Sanctuary")
@@ -120,8 +124,9 @@ def test_zoo():
 
 #Calls the above functions with the formatting from Normalizer to return a clean output of test run
 if __name__ == '__main__':
+    normalizerformat(print_single_animal, "Print Summary for a single Animal")
     normalizerformat(test_wrong_category, "Attempting to add a Mammal to a Bird enclosure:")
     normalizerformat(test_health_deny, "Attempt to add animal under treatment to enclosure")
     normalizerformat(test_zookeeper_unassigned_animal, "Zookeeper feeding assigned vs unassigned animal")
-    normalizerformat(test_invalid_animal_input, "Invalid input: adding non-Animal to enclosure")
+    normalizerformat(test_invalid_animal_input, "Adding non-Animal to enclosure")
     normalizerformat(test_zoo, "Full test of Zoo functionality, no errors")

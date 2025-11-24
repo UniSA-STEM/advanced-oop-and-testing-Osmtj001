@@ -69,6 +69,19 @@ class Animal:
                 print(f"Health Issue: {issue}")
 #Property for category which allows for encapsulated access
     category = property(__get_category, __set_category)
+#Str function to easily display animal data to user
+#Active issues & total issues are displayed after returning the len of each ones list
+    def __str__(self):
+        active_issues = len(self.get_active_issues())
+        total_issues = len(self.get_all_issues())
+        return (f"Animal: {self.name}"
+                f"\n Species: {self.species}"
+                f"\n Age: {self.age}"
+                f"\n Diet: {self.diet}"
+                f"\n Category: {self.category}"
+                f"\n Sound: {self.sound}"
+                f"\n Health Issues: {total_issues} total, {active_issues} active")
+
 
 #Allows user to assign medical issues to a specific animal, and resolve with a treatment plan
 #Each issue is stored with a description, date reported, level of severity, and treatment plan
