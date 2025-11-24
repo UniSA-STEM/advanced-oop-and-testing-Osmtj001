@@ -63,6 +63,7 @@ class Enclosure:
         if not isinstance(animal, str):
             if animal.has_active_issues():
                 print(f"{animal.name} has an active health issues & cannot be added to an enclosure")
+                return
 
             if animal.category == self.__animal_type:
                 self.__animal.append(animal)
