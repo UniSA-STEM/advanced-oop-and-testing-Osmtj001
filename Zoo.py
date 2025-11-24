@@ -1,5 +1,5 @@
 '''
-File: staff.py
+File: Zoo.py
 Description: This Class allows the higher functions of the Zoo such as adding animals, enclosures, and staff to take place
 A string is returned to list all critical information about the zoo
 Author: Trent Osmond

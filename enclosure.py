@@ -1,6 +1,7 @@
 ''''
 File: enclosure.py
-Description: A brief description of this Python module.
+Description: This module allows the Enclosure class to be instantiated. This class allows for values name, size, environment, animal, cleanliness & animals
+Getters & Setters are used to ensure only the correct data is permitted into the function
 Author: Trent Osmond
 ID: 110316757
 Username: Osmtj001

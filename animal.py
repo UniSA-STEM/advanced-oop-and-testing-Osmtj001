@@ -1,6 +1,9 @@
 ''''
 File: animal.py
-Description: A brief description of this Python module.
+Description: This module allows the Animal class to be instantiated. This class allows for values name, species, age, diet, category, sound & health issues
+The Health class is also included in the module which allows for recording health issues, current treatment, date recorded, and data validation
+to ensure the correct values are passed. This links with other modules such as enclosure to ensure no animal undergoing treatment will be moved into
+a different enclosure
 Author: Trent Osmond
 ID: 110316757
 Username: Osmtj001
