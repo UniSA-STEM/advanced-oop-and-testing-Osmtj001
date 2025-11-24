@@ -7,15 +7,9 @@ Username: Osmtj001
 This is my own work as defined by the University's Academic Integrity Policy.
 '''
 
-# The system should allow for the crea�on and management of animals, each with atributes
-# such as name, species, age, and dietary needs. Animals may belong to different categories—
-#  such as mammals, rep�les, or birds—which may share common behaviors while also
-# exhibi�ng unique traits. All animals should be capable of performing basic ac�ons like
-# making sounds, ea�ng, and sleeping.
-
 class Animal:
-
-    Categories = ["Bird"]
+    #Allows for global use of the Category
+    Categories = ["Mammal", "Bird", "Reptile", "Fish", "Amphibian", "Insect"]
     def __init__(self, name, species, age, diet, category, sound):
         self.name = name
         self.species = species
@@ -34,6 +28,16 @@ class Animal:
 
     def sleep(self):
         print(f"{self.name} is now sleeping. ZZZzzz.")
+
+    def __get_category(self):
+        return self.__category
+
+    def __set_category(self, category):
+        if category in Animal.Categories:
+            self.__category = category
+        else:
+            print(f"Invalid category: '{category}'. Defaulting to 'Mammal'.")
+            self.__category = "Mammal"
 
     def add_health_issue(self, health_issue):
         self.__health_issues.append(health_issue)
@@ -62,6 +66,8 @@ class Animal:
         else:
             for issue in self.__health_issues:
                 print(f"Health Issue: {issue}")
+
+    category = property(__get_category, __set_category)
 
 class Health:
     def __init__(self, description, date_reported, level, treatment_plan):
